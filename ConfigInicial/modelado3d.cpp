@@ -41,18 +41,18 @@ int main() {
 
     Shader ourShader("Shader/core.vs", "Shader/core.frag");
 
-    /* EXPLICACI”N DEL ARREGLO:
-       Cada bloque de 36 vÈrtices representa un cubo completo de un solo color.
-       Como no podemos usar varios shaders, pre-coloreamos los cubos aquÌ.
+    /* EXPLICACI√ìN DEL ARREGLO:
+       Cada bloque de 36 v√©rtices representa un cubo completo de un solo color.
+       Como no podemos usar varios shaders, pre-coloreamos los cubos aqu√≠.
     */
 
-   //Formato: PosiciÛn (x, y, z), Color (r, g, b)
+   //Formato: Posici√≥n (x, y, z), Color (r, g, b)
     float vertices[] = {
         // --- CUBO 0: BLANCO PURO (Cuerpo, Pecho, Cabeza) ---
         // Frente
         -0.5f, -0.5f,  0.5f,  1.0f, 1.0f, 1.0f,   0.5f, -0.5f,  0.5f,  1.0f, 1.0f, 1.0f,   0.5f,  0.5f,  0.5f,  1.0f, 1.0f, 1.0f,
          0.5f,  0.5f,  0.5f,  1.0f, 1.0f, 1.0f,  -0.5f,  0.5f,  0.5f,  1.0f, 1.0f, 1.0f,  -0.5f, -0.5f,  0.5f,  1.0f, 1.0f, 1.0f,
-         // Atr·s
+         // Atr√°s
          -0.5f, -0.5f, -0.5f,  1.0f, 1.0f, 1.0f,   0.5f, -0.5f, -0.5f,  1.0f, 1.0f, 1.0f,   0.5f,  0.5f, -0.5f,  1.0f, 1.0f, 1.0f,
           0.5f,  0.5f, -0.5f,  1.0f, 1.0f, 1.0f,  -0.5f,  0.5f, -0.5f,  1.0f, 1.0f, 1.0f,  -0.5f, -0.5f, -0.5f,  1.0f, 1.0f, 1.0f,
           // Izquierda
@@ -125,7 +125,7 @@ int main() {
                  0.5f,  0.5f,  0.5f,  0.92f,0.92f,0.92f, -0.5f,  0.5f,  0.5f,  0.92f,0.92f,0.92f, -0.5f,  0.5f, -0.5f,  0.92f,0.92f,0.92f,
     };
 
-    // (AquÌ va la inicializaciÛn de VAO y VBO que ya tenÌas, es idÈntica)
+    // (Aqu√≠ va la inicializaci√≥n de VAO y VBO que ya ten√≠as, es id√©ntica)
     GLuint VBO, VAO;
     glGenVertexArrays(1, &VAO);
     glGenBuffers(1, &VBO);
@@ -159,7 +159,7 @@ int main() {
 
 
 
-        // --- DIBUJANDO AL PERSONAJE (JERARQUÕA DE CUBOS) ---
+        // --- DIBUJANDO AL PERSONAJE (JERARQU√çA DE CUBOS) ---
 
        
         glBindVertexArray(VAO);
@@ -172,7 +172,7 @@ int main() {
         glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
         glDrawArrays(GL_TRIANGLES, 0, 36);
 
-        // Espalda (EscalÛn)
+        // Espalda (Escal√≥n)
         model = glm::mat4(1.0f);
         model = glm::translate(model, glm::vec3(0.0f, -0.05f, -0.35f));
         model = glm::scale(model, glm::vec3(1.0f, 0.9f, 0.7f));
@@ -205,7 +205,7 @@ int main() {
         // Pata Derecha
         model = glm::mat4(1.0f);
         model = glm::translate(model, glm::vec3(0.25f, -0.7f, 0.1f));
-        model = glm::scale(model, glm::vec3(0.12f, 0.4f, 0.12f)); // <--AquÌ reduje la altura a 0.4f
+        model = glm::scale(model, glm::vec3(0.12f, 0.4f, 0.12f)); // <--Aqu√≠ reduje la altura a 0.4f
         glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
         glDrawArrays(GL_TRIANGLES, 36, 36);
 
@@ -277,7 +277,7 @@ int main() {
     return 0;
 }
 
-// (FunciÛn Inputs igual al previo para mover la c·mara)
+// (Funci√≥n Inputs igual al previo para mover la c√°mara)
 void Inputs(GLFWwindow* window) {
     if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS) 
         glfwSetWindowShouldClose(window, true);
