@@ -26,7 +26,7 @@ int main() {
 
     Shader ourShader("Shader/core.vs", "Shader/core.frag");
 
-    // Arreglo de vÈrtices basado en tus Ìndices y coordenadas exactas
+    // Arreglo de v√©rtices basado en tus √≠ndices y coordenadas exactas
     // Estructura: X, Y, Z, R, G, B
     float vertices[] = {
         // --- CABEZA Y OREJA ---
@@ -52,7 +52,7 @@ int main() {
          -0.5f, -0.3f, 0.0f, 0.0f, 0.4f, 0.0f, -0.4f, -0.4f, 0.0f, 0.0f, 0.4f, 0.0f, -0.3f, -0.3f, 0.0f, 0.0f, 0.4f, 0.0f, // (7,12,13)
          -0.5f, -0.3f, 0.0f, 0.3f, 0.5f, 0.1f, -0.6f, -0.5f, 0.0f, 0.3f, 0.5f, 0.1f, -0.4f, -0.4f, 0.0f, 0.3f, 0.5f, 0.1f, // (7,8,12)
 
-         // --- MANDÕBULA ---
+         // --- MAND√çBULA ---
          -0.6f, -0.5f, 0.0f, 1.0f, 0.5f, 0.0f, -0.5f, -0.7f, 0.0f, 1.0f, 0.5f, 0.0f, -0.4f, -0.4f, 0.0f, 1.0f, 0.5f, 0.0f, // (8,9,12)
          -0.5f, -0.7f, 0.0f, 0.9f, 0.4f, 0.0f, -0.25f,-0.65f,0.0f, 0.9f, 0.4f, 0.0f, -0.4f, -0.4f, 0.0f, 0.9f, 0.4f, 0.0f, // (9,10,12)
          -0.25f,-0.65f,0.0f, 0.8f, 0.3f, 0.0f, -0.2f, -0.5f, 0.0f, 0.8f, 0.3f, 0.0f, -0.4f, -0.4f, 0.0f, 0.8f, 0.3f, 0.0f, // (10,11,12)
@@ -83,7 +83,7 @@ int main() {
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
     glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
 
-    // PosiciÛn (Location 0)
+    // Posici√≥n (Location 0)
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
     glEnableVertexAttribArray(0);
     // Color (Location 1)
@@ -97,7 +97,7 @@ int main() {
 
         ourShader.Use();
         glBindVertexArray(VAO);
-        // Dibujamos todos los tri·ngulos autom·ticamente
+        // Dibujamos todos los tri√°ngulos autom√°ticamente
         glDrawArrays(GL_TRIANGLES, 0, sizeof(vertices) / (6 * sizeof(float)));
         glBindVertexArray(0);
         glfwSwapBuffers(window);
