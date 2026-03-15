@@ -1,7 +1,7 @@
 /*
 Nombre: Chavez Serna Joana Valeria
 No. Cuenta: 320267561
-Actividad: Previo 4, Modelado Geom閠rico
+Actividad: Previo 4, Modelado Geom茅trico
 Fecha de entrega: 01 de Marzo del 2026
 */
 
@@ -32,7 +32,7 @@ float movZ=-5.0f;
 float rot = 0.0f;
 int main() {
 	glfwInit();
-	//Verificaci髇 de compatibilidad 
+	//Verificaci贸n de compatibilidad 
 	// Set all the required options for GLFW
 	/*glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
@@ -47,7 +47,7 @@ int main() {
 
 	glfwGetFramebufferSize(window, &screenWidth, &screenHeight);
 
-	//Verificaci髇 de errores de creacion  ventana
+	//Verificaci贸n de errores de creacion  ventana
 	if (nullptr == window)
 	{
 		std::cout << "Failed to create GLFW window" << std::endl;
@@ -59,7 +59,7 @@ int main() {
 	glfwMakeContextCurrent(window);
 	glewExperimental = GL_TRUE;
 
-	//Verificaci髇 de errores de inicializaci髇 de glew
+	//Verificaci贸n de errores de inicializaci贸n de glew
 
 	if (GLEW_OK != glewInit()) {
 		std::cout << "Failed to initialise GLEW" << std::endl;
@@ -212,29 +212,29 @@ int main() {
 		
 		// Pata 1
 		model = glm::mat4(1.0f); //--> se iniciliza de nuevo la matriz
-		model = glm::scale(model, glm::vec3(0.1f, 0.6f, 0.1f));// --> Tama駉 de la pata
-		model = glm::translate(model, glm::vec3(2.9f, -0.6f, 1.9f));// --> Posici髇 de la pata
+		model = glm::scale(model, glm::vec3(0.1f, 0.6f, 0.1f));// --> Tama帽o de la pata
+		model = glm::translate(model, glm::vec3(2.9f, -0.6f, 1.9f));// --> Posici贸n de la pata
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		glDrawArrays(GL_TRIANGLES, 0, 36);
 
 		// Pata 2
 		model = glm::mat4(1.0f); //--> se iniciliza de nuevo la matriz
-		model = glm::scale(model, glm::vec3(0.1f, 0.6f, 0.1f));// --> Tama駉 de la pata
-		model = glm::translate(model, glm::vec3(-2.9f, -0.6f, 1.9f));// --> Posici髇 de la pata
+		model = glm::scale(model, glm::vec3(0.1f, 0.6f, 0.1f));// --> Tama帽o de la pata
+		model = glm::translate(model, glm::vec3(-2.9f, -0.6f, 1.9f));// --> Posici贸n de la pata
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		glDrawArrays(GL_TRIANGLES, 0, 36);
 
 		// Pata 3
 		model = glm::mat4(1.0f); //--> se iniciliza de nuevo la matriz
-		model = glm::scale(model, glm::vec3(0.1f, 0.6f, 0.1f));// --> Tama駉 de la pata
-		model = glm::translate(model, glm::vec3(-2.9f, -0.6f, -1.9f));// --> Posici髇 de la pata
+		model = glm::scale(model, glm::vec3(0.1f, 0.6f, 0.1f));// --> Tama帽o de la pata
+		model = glm::translate(model, glm::vec3(-2.9f, -0.6f, -1.9f));// --> Posici贸n de la pata
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		glDrawArrays(GL_TRIANGLES, 0, 36);
 
 		// Pata 4
 		model = glm::mat4(1.0f); //--> se iniciliza de nuevo la matriz
-		model = glm::scale(model, glm::vec3(0.1f, 0.6f, 0.1f));// --> Tama駉 de la pata
-		model = glm::translate(model, glm::vec3(2.9f, -0.6f, -1.9f));// --> Posici髇 de la pata
+		model = glm::scale(model, glm::vec3(0.1f, 0.6f, 0.1f));// --> Tama帽o de la pata
+		model = glm::translate(model, glm::vec3(2.9f, -0.6f, -1.9f));// --> Posici贸n de la pata
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		glDrawArrays(GL_TRIANGLES, 0, 36);
 

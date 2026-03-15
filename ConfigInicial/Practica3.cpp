@@ -177,16 +177,16 @@ int main() {
 		GLint viewLoc = glGetUniformLocation(ourShader.Program, "view");
 		GLint projLoc = glGetUniformLocation(ourShader.Program, "projection");
 
-		// C·mara fija con perspectiva
-		// 1. Alejas la c·mara
+		// C√°mara fija con perspectiva
+		// 1. Alejas la c√°mara
 		glm::mat4 view = glm::translate(glm::mat4(1.0f), glm::vec3(-5.0f, -15.0f, -30.0f));
 
-		// 2. InclinaciÛn para ver las tapas (Eje X)
+		// 2. Inclinaci√≥n para ver las tapas (Eje X)
 		//view = glm::rotate(view, (float)glfwGetTime(), glm::vec3(0, 1, 0)); // funcion para rotar la figura en vivo
 		view = glm::rotate(view, glm::radians(75.0f), glm::vec3(1, 0, 0));
 
-		// 3. EFECTO TROMPO: RotaciÛn continua en el eje Y (0, 1, 0)
-		// Usamos glfwGetTime() para que siempre estÈ girando en vivo
+		// 3. EFECTO TROMPO: Rotaci√≥n continua en el eje Y (0, 1, 0)
+		// Usamos glfwGetTime() para que siempre est√© girando en vivo
 		//view = glm::rotate(view, (float)glfwGetTime(), glm::vec3(0, 1, 0));
 		view = glm::rotate(view, glm::radians(-45.0f), glm::vec3(1, 0, 0));
 
@@ -204,7 +204,7 @@ int main() {
 		float s5 = 8.0f;  // a 
 
 		// 1. CUBO 1 (Base - J)
-		// Lo movemos a la izquierda para que su centro reciba al vÈrtice del Cubo 2
+		// Lo movemos a la izquierda para que su centro reciba al v√©rtice del Cubo 2
 		model = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, 0.0f));
 		model = glm::rotate(model, glm::radians(20.0f), glm::vec3(0, 1, 0));
 		model = glm::scale(model, glm::vec3(s1));
@@ -222,7 +222,7 @@ int main() {
 		glDrawArrays(GL_TRIANGLES, 0, 36);
 
 		// 3. CUBO 3 (a)
-		// X: PosiciÛn del anterior + su propio radio
+		// X: Posici√≥n del anterior + su propio radio
 		float posX3 = posX2 + s3 / 2.0f;
 		float posY3 = posY2 + s2 / 2.0f + s3 / 2.0f;
 		model = glm::translate(glm::mat4(1.0f), glm::vec3(posX3, posY3, 0.0f));
@@ -232,7 +232,7 @@ int main() {
 		glDrawArrays(GL_TRIANGLES, 0, 36);
 
 		// 4. CUBO 4 (n)
-		// X: PosiciÛn del anterior + su propio radio
+		// X: Posici√≥n del anterior + su propio radio
 		float posX4 = posX3 + s4 / 2.0f;
 		float posY4 = posY3 + s3 / 2.0f + s4 / 2.0f;
 		model = glm::translate(glm::mat4(1.0f), glm::vec3(posX4, posY4, 0.0f));
@@ -243,10 +243,10 @@ int main() {
 
 		// 5. CUBO 5 (a - DIAMANTE)
 		float tapa4 = posY4 + s4 / 2.0f;
-		// Usamos posX4 exacta para que el vÈrtice caiga en el centro del cubo 4
+		// Usamos posX4 exacta para que el v√©rtice caiga en el centro del cubo 4
 		model = glm::translate(glm::mat4(1.0f), glm::vec3(posX4-1, tapa4 + (s5 * 0.85f), 0.0f));
 		model = glm::rotate(model, glm::radians(45.0f), glm::vec3(0, 0, 1)); // Diamante
-		model = glm::rotate(model, glm::radians(45.0f), glm::vec3(1, 0, 0)); // InclinaciÛn
+		model = glm::rotate(model, glm::radians(45.0f), glm::vec3(1, 0, 0)); // Inclinaci√≥n
 		model = glm::scale(model, glm::vec3(s5));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		glDrawArrays(GL_TRIANGLES, 0, 36);
