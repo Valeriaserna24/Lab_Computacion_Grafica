@@ -1,7 +1,7 @@
 /* Nombre: Chavez Serna Joana Valeria
 * Fecha de entrega: 13 de Febrero 2026
 * No de cuenta: 320267561
-* Pr·ctica: 1 ConfiguraciÛn inicial
+* Pr√°ctica: 1 Configuraci√≥n inicial
 */
 
 #include<iostream>
@@ -11,11 +11,11 @@
 // Incluimos GLFW que es la que nos ayuda a crear la ventana y manejar el teclado/mouse
 #include <GLFW/glfw3.h>
 
-// Definimos el tamaÒo de nuestra ventana
+// Definimos el tama√±o de nuestra ventana
 const GLint WIDTH = 800, HEIGHT = 600;
 
-// Shaders: Son pequeÒos programas que corren directo en la tarjeta de video (GPU)
-// Este Vertex Shader se encarga de posicionar los puntos (vÈrtices) en el espacio
+// Shaders: Son peque√±os programas que corren directo en la tarjeta de video (GPU)
+// Este Vertex Shader se encarga de posicionar los puntos (v√©rtices) en el espacio
 const GLchar* vertexShaderSource =
 {
 	"#version 330 core\n"
@@ -26,7 +26,7 @@ const GLchar* vertexShaderSource =
 	"}\0"
 };
 
-// Este Fragment Shader le da color a los pÌxeles (en este caso un tono naranja/naranja rojizo)
+// Este Fragment Shader le da color a los p√≠xeles (en este caso un tono naranja/naranja rojizo)
 const GLchar* fragmentShaderSource =
 {
 	"#version 330 core\n"
@@ -37,25 +37,25 @@ const GLchar* fragmentShaderSource =
 	"}\n\0"
 };
 
-// Prototipo de la funciÛn para compilar los shaders
+// Prototipo de la funci√≥n para compilar los shaders
 void CrearShader(void);
 
 int main() {
 	// Paso 1: Inicializar GLFW
 	glfwInit();
 
-	// Configuramos OpenGL para usar la versiÛn 3.3 en el perfil core (el m·s moderno y eficiente)
+	// Configuramos OpenGL para usar la versi√≥n 3.3 en el perfil core (el m√°s moderno y eficiente)
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 	glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE); // Necesario para Mac, pero bueno ponerlo siempre
 	glfwWindowHint(GLFW_RESIZABLE, GL_FALSE); // Por ahora dejamos la ventana fija
 
-	// Creamos la ventana con mi nombre como dice la pr·ctica
+	// Creamos la ventana con mi nombre como dice la pr√°ctica
 	GLFWwindow* window = glfwCreateWindow(WIDTH, HEIGHT, "Chavez Serna Joana Valeria", nullptr, nullptr);
 
 	int screenWidth, screenHeight;
-	// Obtenemos el tamaÒo real del buffer para que el dibujo no se vea estirado
+	// Obtenemos el tama√±o real del buffer para que el dibujo no se vea estirado
 	glfwGetFramebufferSize(window, &screenWidth, &screenHeight);
 
 	// Si no se pudo crear la ventana, cerramos el programa
@@ -68,27 +68,27 @@ int main() {
 
 	// Hacemos que la ventana actual sea el contexto donde OpenGL va a dibujar
 	glfwMakeContextCurrent(window);
-	glewExperimental = GL_TRUE; // Habilitamos caracterÌsticas modernas de GLEW
+	glewExperimental = GL_TRUE; // Habilitamos caracter√≠sticas modernas de GLEW
 
-	// Inicializamos GLEW y checamos que todo estÈ en orden
+	// Inicializamos GLEW y checamos que todo est√© en orden
 	if (GLEW_OK != glewInit()) {
 		std::cout << "Failed to initialise GLEW" << std::endl;
 		return EXIT_FAILURE;
 	}
 
-	// imprimimos los datos de nuestra GPU y la versiÛn que estamos usando
+	// imprimimos los datos de nuestra GPU y la versi√≥n que estamos usando
 	std::cout << "> Version: " << glGetString(GL_VERSION) << std::endl;
 	std::cout << "> Vendor: " << glGetString(GL_VENDOR) << std::endl;
 	std::cout << "> Renderer: " << glGetString(GL_RENDERER) << std::endl;
 	std::cout << "> SL Version: " << glGetString(GL_SHADING_LANGUAGE_VERSION) << std::endl;
 
-	// Le decimos a OpenGL el ·rea donde va a renderizar
+	// Le decimos a OpenGL el √°rea donde va a renderizar
 	glViewport(0, 0, screenWidth, screenHeight);
 
-	// AquÌ se llamarÌa a CrearShader para compilar el cÛdigo de arriba
+	// Aqu√≠ se llamar√≠a a CrearShader para compilar el c√≥digo de arriba
 	// CrearShader();
 
-	// Definimos las coordenadas del tri·ngulo (X, Y, Z) entre -1 y 1
+	// Definimos las coordenadas del tri√°ngulo (X, Y, Z) entre -1 y 1
 	GLfloat vertices[] =
 	{
 		-0.5f, -0.5f, 0.0f, // Esquina Izquierda (Abajo)
@@ -96,8 +96,8 @@ int main() {
 		 0.0f,  0.5f, 0.0f  // Arriba (Centro)
 	};
 
-	// VBO: Buffer que guarda los datos de los vÈrtices en la GPU
-	// VAO: Objeto que recuerda cÛmo est·n organizados esos datos
+	// VBO: Buffer que guarda los datos de los v√©rtices en la GPU
+	// VAO: Objeto que recuerda c√≥mo est√°n organizados esos datos
 	GLuint VBO, VAO;
 	glGenVertexArrays(1, &VAO);
 	glGenBuffers(1, &VBO);
@@ -105,15 +105,15 @@ int main() {
 	// Empezamos a configurar el VAO
 	glBindVertexArray(VAO);
 
-	// Pasamos los datos del arreglo de vÈrtices al buffer de la GPU
+	// Pasamos los datos del arreglo de v√©rtices al buffer de la GPU
 	glBindBuffer(GL_ARRAY_BUFFER, VBO);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
 
-	// Le explicamos a OpenGL que los datos son de 3 en 3 (floats) y empiezan en el Ìndice 0
+	// Le explicamos a OpenGL que los datos son de 3 en 3 (floats) y empiezan en el √≠ndice 0
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat), (GLvoid*)0);
 	glEnableVertexAttribArray(0);
 
-	// Desactivamos los buffers para no moverles por error despuÈs
+	// Desactivamos los buffers para no moverles por error despu√©s
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 	glBindVertexArray(0);
 
@@ -129,10 +129,10 @@ int main() {
 
 		// Usamos el VAO que configuramos antes
 		glBindVertexArray(VAO);
-		glDrawArrays(GL_TRIANGLES, 0, 3); // Dibuja el tri·ngulo con 3 vÈrtices
+		glDrawArrays(GL_TRIANGLES, 0, 3); // Dibuja el tri√°ngulo con 3 v√©rtices
 		glBindVertexArray(0);
 
-		// Cambiamos el buffer (lo que se dibujÛ atr·s pasa al frente para verse)
+		// Cambiamos el buffer (lo que se dibuj√≥ atr√°s pasa al frente para verse)
 		glfwSwapBuffers(window);
 	}
 
@@ -141,7 +141,7 @@ int main() {
 	return EXIT_SUCCESS;
 }
 
-// FunciÛn para compilar y enlazar los Shaders (nuestra pequeÒa f·brica de gr·ficos)
+// Funci√≥n para compilar y enlazar los Shaders (nuestra peque√±a f√°brica de gr√°ficos)
 void CrearShader()
 {
 	// 1. Compilamos el Vertex Shader
@@ -149,7 +149,7 @@ void CrearShader()
 	glShaderSource(vertexShader, 1, &vertexShaderSource, NULL);
 	glCompileShader(vertexShader);
 
-	// Checamos si hubo errores de compilaciÛn
+	// Checamos si hubo errores de compilaci√≥n
 	GLint success;
 	GLchar infoLog[512];
 	glGetShaderiv(vertexShader, GL_COMPILE_STATUS, &success);
@@ -187,7 +187,7 @@ void CrearShader()
 		std::cout << "ERROR AL ENLAZAR PROGRAMA DE SHADER:\n" << infoLog << std::endl;
 	}
 
-	// Ya que est·n en el programa, borramos los shaders individuales para liberar espacio
+	// Ya que est√°n en el programa, borramos los shaders individuales para liberar espacio
 	glDeleteShader(vertexShader);
 	glDeleteShader(fragmentShader);
 }

@@ -1,0 +1,52 @@
+# MTL Corregido para Dulces - UNAM
+newmtl blinn1SG
+	illum 2
+	Kd 1.00 1.00 1.00
+	Ka 1.00 1.00 1.00
+	map_Kd red.jpg.jpg
+
+newmtl blinn2SG
+	illum 2
+	Kd 1.00 1.00 1.00
+	Ka 1.00 1.00 1.00
+	map_Kd blau.jpg
+
+newmtl blinn3SG
+	illum 2
+	Kd 1.00 1.00 1.00
+	Ka 1.00 1.00 1.00
+	map_Kd white.jpg
+
+newmtl blinn4SG
+	illum 2
+	Kd 1.00 1.00 1.00
+	Ka 1.00 1.00 1.00
+	map_Kd verd.jpg
+
+newmtl blinn5SG
+	illum 2
+	Kd 1.00 1.00 1.00
+	Ka 1.00 1.00 1.00
+	map_Kd yelow.jpg
+
+newmtl blinn6SG
+	illum 2
+	Kd 0.66 0.37 0.00
+	Ka 0.20 0.20 0.20
+
+newmtl blinn7SG
+	illum 2
+	Kd 0.21 0.00 0.00
+	Ka 0.20 0.20 0.20
+
+newmtl blinn8SG
+	illum 2
+	Kd 1.00 1.00 1.00
+	Ka 1.00 1.00 1.00
+	map_Kd regalo4.jpg
+
+newmtl blinn9SG
+	illum 2
+	Kd 1.00 1.00 1.00
+	Ka 1.00 1.00 1.00
+	map_Kd red.sss.jpg

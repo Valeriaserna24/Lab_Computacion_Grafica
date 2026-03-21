@@ -1,0 +1,16 @@
+# 3ds Max Wavefront OBJ Exporter corregido para la UNAM
+newmtl signboard_02
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 1.0000 1.0000 1.0000
+	Kd 1.0000 1.0000 1.0000
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka textures/signboard_02_Albedo.png
+	map_Kd textures/signboard_02_Albedo.png
+	map_bump textures/signboard_02_Normal.png
+	bump textures/signboard_02_Normal.png
