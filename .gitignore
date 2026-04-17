@@ -361,3 +361,8 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+# Asegurar que se suban los archivos de proyecto
+!*.vcxproj
+!*.vcxproj.filters
+!*.sln
